@@ -1,0 +1,8 @@
+        (imgH, imgW, _) = streamImg.shape
+        fontScale = imgH * imgW / (450*450)
+        thickness = max(int(2 * imgH * imgW / (450*450)), 2)
+        t_size = cv2.getTextSize(dateText, 0, fontScale=fontScale, thickness=thickness)[0]
+        xCoords = int(0.05 * imgW)
+        yCoords = int(imgH - t_size[1])
+        # cv2.putText(streamImg, dateText, (10, streamImg.shape[1] - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 0, 0), 2)
+        cv2.putText(streamImg, dateText, (xCoords, yCoords), cv2.FONT_HERSHEY_SIMPLEX, fontScale, (255, 0, 0), thickness)
